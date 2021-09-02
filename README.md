@@ -33,3 +33,8 @@ CGO_LDFLAGS="-lsnappy" make install TENDERMINT_BUILD_OPTIONS=cleveldb
 
 CGO_LDFLAGS="-lsnappy" make build TENDERMINT_BUILD_OPTIONS=cleveldb
 ```
+### PROMETHEUS
+```
+# config/config.toml
+prometheus = true
+```

@@ -38,3 +38,11 @@ CGO_LDFLAGS="-lsnappy" make build TENDERMINT_BUILD_OPTIONS=cleveldb
 # config/config.toml
 prometheus = true
 ```
+### Reset to Genesis Block 
+```
+hsd unsafe-reset-all
+```
+### Replay Last Block
+```
+hsd start --replay-last-block
+```

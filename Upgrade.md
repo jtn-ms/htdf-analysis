@@ -1,4 +1,5 @@
-### Flow(v0->v1), app.Engine.Activate(appVersion)
+***Flow(v0->v1), app.Engine.Activate(appVersion)***
+
 BaseApp:EndBlock: Protocol_0.EndBlocker, app.Engine.Activate
 ```
 [v0: receiving upgrade-proposal]
@@ -15,9 +16,9 @@ BaseApp:EndBlock-----
 ### AppVersion vs. ProtocolVersion
 appVersionStr-->***appVersion*** 
 
-***Protocol_0.EndBlocker --> x/upgrade/endblocker.go:EndBlocker  ?  x/upgrade/handler.go:EndBlocker***
+***Protocol_0.EndBlocker --> x/gov/endblocker.go:EndBlocker  ?  x/upgrade/handler.go:EndBlocker***
 
-***x/upgrade/endblocker.go:EndBlocker***
+***x/gov/endblocker.go:EndBlocker***
 ```go
 ```
 ***x/upgrade/handler.go:EndBlocker***

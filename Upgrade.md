@@ -1,10 +1,25 @@
-### Flow(v0->v1)
+### Flow(v0->v1), app.Engine.Activate(appVersion)
+BaseApp:EndBlock: Protocol_0.EndBlocker, app.Engine.Activate
 ```
-[v0]
+[v0: receiving upgrade-proposal]
 BaseApp:EndBlock---------->app.Engine.GetCurrentProtocol().GetEndBlocker()(app.deliverState.ctx, req)
 Protocol_0.EndBlocker----->upgrade:EndBlocker
+upgrade:EndBlocker-------->protocolKeeper.SetCurrentVersion(upgradeConfig.Protocol.Version),emit(sdk.AppVersionTag) when ctx.BlockHeight() == upgradeConfig.Protocol.Height - 1
+
+[v1]
+BaseApp:EndBlock-----
 ```
+### Events
+- [event: active_proposal] content: type:"active_proposal" attributes:<key:"proposal_id" value:"1" > attributes:<key:"proposal_result" value:"proposal-passed" > 
+- [event: upgrade]: never called?
 ### AppVersion vs. ProtocolVersion
+appVersionStr-->***appVersion*** 
+
+***Protocol_0.EndBlocker --> x/upgrade/endblocker.go:EndBlocker  ?  x/upgrade/handler.go:EndBlocker***
+
+***x/upgrade/endblocker.go:EndBlocker***
+```go
+```
 ***x/upgrade/handler.go:EndBlocker***
 ```go
 func EndBlocker(ctx sdk.Context, uk Keeper) {
